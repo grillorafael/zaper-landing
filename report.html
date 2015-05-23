@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>zaper | feedback</title>
+    <meta name="description" content="">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app='zaper' ng-controller='FeedbackCtrl' ng-cloak>
+    <md-content layout-fill layout="row" layout-align="center center" class="login-view">
+        <md-card ng-if='sent'>
+            <md-card-content>
+                <h2 class="md-title">Obrigado por contribuir com o zaper!</h2>
+            </md-card-content>
+        </md-card>
+        <md-card ng-if='!sent' flex="50" class="md-whiteframe-z5">
+            <md-card-content>
+                <h2 class="md-title">zaper | Feedback</h2>
+                <form name="feedbackForm" ng-submit='submit()'>
+                    <md-input-container class="md-padding">
+                        <md-select name="platform" required placeholder="Selecione a plataforma" ng-model="report.device.platform">
+                            <md-option value="android">Android</md-option>
+                            <md-option value="ios">iOS</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-padding">
+                        <md-select name="type" required placeholder="Seleciona o tipo de feedback" ng-model="report.type">
+                            <md-option value="enhancement">Nova funcionalidade</md-option>
+                            <md-option value="bug">Problema</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-padding">
+                        <label for="message">Mensagem</label>
+                        <textarea ng-model='report.content' name="message" autofocus required></textarea>
+                    </md-input-container>
+                </form>
+            </md-card-content>
+            <div class="md-actions" layout="row">
+                <div flex layout="row" layout-align="center center">
+                    <md-button flex class="md-primary md-raised btn-block" ng-disabled="isSending" ng-click='submit()'>Enviar</md-button>
+                </div>
+            </div>
+        </md-card>
+    </md-content>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+    <script>
+        var app = angular.module('zaper', ['ngMaterial']).controller('FeedbackCtrl', FeedbackCtrl);
+        function FeedbackCtrl($scope, $http) {
+            $scope.report = {
+                type: null,
+                device: {
+                    platform: null
+                }
+            };
+
+            $scope.submit = function() {
+                $scope.isSending = true;
+                $scope.hasError = false;
+                if ($scope.report.content && $scope.report.content.length > 0) {
+                    $http.post('http://api.zaper.com.br/api/report', $scope.report)
+                        .success(function() {
+                            $scope.sent = true;
+                        })
+                        .error(function() {
+                            $scope.isSending = false;
+                            $scope.hasError = true;
+                        });
+                } else {
+                    $scope.isSending = false;
+                    $scope.hasError = true;
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>

@@ -22,6 +22,10 @@
                 <h2 class="md-title">zaper | Feedback</h2>
                 <form name="feedbackForm" ng-submit='submit()'>
                     <md-input-container class="md-padding">
+                        <label for="Email">Email</label>
+                        <input type="email" name="email" ng-model='report.device.email' autofocus>
+                    </md-input-container>
+                    <md-input-container class="md-padding">
                         <md-select name="platform" required placeholder="Selecione a plataforma" ng-model="report.device.platform">
                             <md-option value="android">Android</md-option>
                             <md-option value="ios">iOS</md-option>
@@ -35,7 +39,7 @@
                     </md-input-container>
                     <md-input-container class="md-padding">
                         <label for="message">Mensagem</label>
-                        <textarea ng-model='report.content' name="message" autofocus required></textarea>
+                        <textarea ng-model='report.content' name="message" required></textarea>
                     </md-input-container>
                 </form>
             </md-card-content>

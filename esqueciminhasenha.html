@@ -11,12 +11,12 @@
 </head>
 <body ng-app='zaper' ng-controller='RecoverCtrl' ng-cloak>
     <section>
-        <form action="">
+        <form ng-submit='submit()'>
             <label for="new-password">
-                <input type="password" name="new-password" placeholder="Digite sua nova senha">
+                <input type="password" name="new-password" placeholder="Digite sua nova senha" ng-model='password'>
             </label>
             <label for="new-password-again">
-                <input type="password" name="new-password-again" placeholder="Digite novamente sua senha">
+                <input type="password" name="new-password-again" placeholder="Digite novamente sua senha" ng-model='repeat_password'>
             </label>
             <button type="submit" ng-click='submit()'>
                 Enviar
@@ -29,25 +29,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
     <script>
         var app = angular.module('zaper', ['ngMaterial']).controller('RecoverCtrl', RecoverCtrl);
-        function RecoverCtrl($scope, $http) {
+        function RecoverCtrl($scope, $http, $location) {
+            var token = $location.search().token;
+            console.log(token);
 
-            // $scope.submit = function() {
-            //     $scope.isSending = true;
-            //     $scope.hasError = false;
-            //     if($scope.report.type == null || $scope.report.device.platform == null || $scope.report.content == null || $scope.report.content.length == 0) {
-            //         $scope.isSending = false;
-            //         $scope.hasError = true;
-            //     }
-            //
-            //     $http.post('http://api.zaper.com.br/api/report', $scope.report)
-            //         .success(function() {
-            //             $scope.sent = true;
-            //         })
-            //         .error(function() {
-            //             $scope.isSending = false;
-            //             $scope.hasError = true;
-            //         });
-            // };
+            $scope.submit = function() {
+                console.log($scope.password);
+                console.log($scope.repeat_password);
+                if($scope.password && $scope.password == $scope.repeat_password && $scope.password.length > 4) {
+                    $http.put("http://api.zaper.com.br/api/password", {
+                        token: token,
+                        password: $scope.password
+                    }).success(function(result) {
+                        console.log(result);
+                    })
+                    .error(function(e) {
+
+                    });
+                }
+                // $scope.isSending = true;
+                // $scope.hasError = false;
+                // if($scope.report.type == null || $scope.report.device.platform == null || $scope.report.content == null || $scope.report.content.length == 0) {
+                //     $scope.isSending = false;
+                //     $scope.hasError = true;
+                // }
+                //
+                // $http.post('http://api.zaper.com.br/api/report', $scope.report)
+                //     .success(function() {
+                //         $scope.sent = true;
+                //     })
+                //     .error(function() {
+                //         $scope.isSending = false;
+                //         $scope.hasError = true;
+                //     });
+            };
         }
     </script>
 </body>

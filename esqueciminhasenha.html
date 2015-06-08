@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>zaper - Redefinir senha</title>
@@ -9,8 +10,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body ng-app='zaper' ng-controller='RecoverCtrl' ng-cloak>
     <section>
+        <md-content layout-padding>
+            <form name="userForm">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label for="new-password">First name</label>
+                        <input type="password" name="new-password" placeholder="Digite sua nova senha">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Last Name</label>
+                        <input ng-model="theMax">
+                    </md-input-container>
+                </div>
+            </form>
+        </md-content>
         <form action="">
             <label for="new-password">
                 <input type="password" name="new-password" placeholder="Digite sua nova senha">
@@ -29,6 +45,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
     <script>
         var app = angular.module('zaper', ['ngMaterial']).controller('RecoverCtrl', RecoverCtrl);
+
         function RecoverCtrl($scope, $http) {
 
             // $scope.submit = function() {
@@ -51,4 +68,5 @@
         }
     </script>
 </body>
+
 </html>

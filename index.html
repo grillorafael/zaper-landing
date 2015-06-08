@@ -3,34 +3,73 @@
 
 <head>
     <title>zaper</title>
-    <meta name="description" content="">
+    <meta name="description" content="No zaper, você conversa com seus amigos sobre seus programas de TV favoritos.">
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="apple-itunes-app" content="app-id=1000641642">
+    <meta name="google-play-app" content="app-id=com.goldenkricket.zaper">
+
+    <!-- Facebook meta tags -->
+    <meta property="og:title" content="zaper">
+    <meta property="og:site_name" content="zaper">
+    <meta property="og:url" content="http://zaper.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="No zaper, você conversa com seus amigos sobre seus programas de TV favoritos.">
+    <meta property="og:image" content="http://zaper.com.br/imgs/icon.png">
+    <meta property="fb:app_id" content="806746042740574">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="app">
+    <meta name="twitter:site" content="@ZaperApp">
+    <meta name="twitter:description" content="No zaper, você conversa com seus amigos sobre seus programas de TV favoritos.">
+    <meta name="twitter:app:country" content="BR">
+    <meta name="twitter:app:name:iphone" content="zaper">
+    <meta name="twitter:app:id:iphone" content="1000641642">
+    <meta name="twitter:app:name:ipad" content="zaper">
+    <meta name="twitter:app:id:ipad" content="1000641642">
+    <meta name="twitter:app:name:googleplay" content="zaper">
+    <meta name="twitter:app:id:googleplay" content="com.goldenkricket.zaper">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/modernizr.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/imgs/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/imgs/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/imgs/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/imgs/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/imgs/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/imgs/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/imgs/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/imgs/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/imgs/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/imgs/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/imgs/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/imgs/favicon-16x16.png">
+
+    <meta name="theme-color" content="#dd5e6a">
 </head>
 
 <body>
+    <nav class="top-bar" data-topbar role="navigation"></nav>
 
-    <div class="bar-1"></div>
-    <div class="bar-2"></div>
-    <div class="bar-3"></div>
-    <div class="bar-4"></div>
-    <div class="bar-5"></div>
-    <div class="bar-6"></div>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.5.5/jquery.smooth-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
 
     <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+        $(function() {
+            $(document).foundation();
+            $('a.anchor-link').smoothScroll();
+        });
     </script>
 </body>
 

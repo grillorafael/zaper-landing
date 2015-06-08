@@ -12,6 +12,15 @@ img {
     margin: 0 auto;
 }
 
+
+a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-default-theme.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover {
+    background: #dd5e6a;
+}
+h2 {
+    text-align: center;
+    color: #dd5e6a;
+    font-weight: 300;
+}
 form {
     max-width: 50%;
     display: block;

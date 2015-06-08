@@ -12,33 +12,22 @@
 </head>
 
 <body ng-app='zaper' ng-controller='RecoverCtrl' ng-cloak>
-    <section>
+    <section >
         <md-content layout-padding>
-            <form name="userForm">
+            <form name="userForm"  ng-submit='submit()'>
                 <div layout layout-sm="column">
                     <md-input-container flex>
-                        <label for="new-password">First name</label>
-                        <input type="password" name="new-password" placeholder="Digite sua nova senha">
+                        <label for="new-password">Digite sua nova senha</label>
+                        <input type="password" name="new-password" placeholder="Digite sua nova senha" ng-model='password'>
                     </md-input-container>
                     <md-input-container flex>
-                        <label>Last Name</label>
-                        <input ng-model="theMax">
+                        <label for="new-password-again">Digite novamente sua nova senha</label>
+                        <input type="password" name="new-password-again" placeholder="Digite novamente sua senha" ng-model='repeat_password'>
                     </md-input-container>
+                    <md-button class="md-raised md-primary"  ng-click='submit()'>Enviar</md-button>
                 </div>
             </form>
         </md-content>
-        <form action="">
-        <form ng-submit='submit()'>
-            <label for="new-password">
-                <input type="password" name="new-password" placeholder="Digite sua nova senha" ng-model='password'>
-            </label>
-            <label for="new-password-again">
-                <input type="password" name="new-password-again" placeholder="Digite novamente sua senha" ng-model='repeat_password'>
-            </label>
-            <button type="submit" ng-click='submit()'>
-                Enviar
-            </button>
-        </form>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>

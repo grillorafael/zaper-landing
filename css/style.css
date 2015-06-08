@@ -1,3 +1,28 @@
 nav.top-bar {
     background-color: #dd5e6a;
 }
+
+
+.forgot-view {
+    background: #f8f3e1;
+    border-top: 5px solid #dd5e6a;
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.container {
+    padding: 2em;
+}
+
+@media (max-width: 500px) {
+    form {
+        max-width: 80%;
+    }
+}

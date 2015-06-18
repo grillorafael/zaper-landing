@@ -19,11 +19,11 @@
     <form name="userForm" ng-submit='submit()' layout="column" ng-if="!passwordSucess">
         <md-input-container flex>
             <label for="new-password">Digite sua nova senha</label>
-            <input type="password" name="new-password" ng-model='password'>
+            <input type="password" name="new-password" ng-model='user.password'>
         </md-input-container>
         <md-input-container flex>
             <label for="new-password-again">Digite novamente sua nova senha</label>
-            <input type="password" name="new-password-again" ng-model='repeat_password'>
+            <input type="password" name="new-password-again" ng-model='user.repeat_password'>
         </md-input-container>
         <md-button class="md-raised md-primary" layout-align="end center">Enviar</md-button>
     </form>
@@ -36,14 +36,14 @@
         var app = angular.module('zaper', ['ngMaterial']).controller('RecoverCtrl', RecoverCtrl);
 
         function RecoverCtrl($scope, $http, $location) {
+            $scope.user = {};
             var token = $location.search().token;
             $scope.passwordSucess = false;
             $scope.submit = function() {
-                if ($scope.password && $scope.password == $scope.repeat_password && $scope.password.length > 4) {
-                    console.log('Sending');
+                if ($scope.user.password && $scope.user.password == $scope.user.repeat_password && $scope.user.password.length > 4) {
                     $http.put("http://api.zaper.com.br/api/password", {
                             token: token,
-                            password: $scope.password
+                            password: $scope.user.password
                         }).success(function(result) {
                             console.log(result);
                             $scope.passwordSucess = true;
@@ -52,21 +52,6 @@
 
                         });
                 }
-                // $scope.isSending = true;
-                // $scope.hasError = false;
-                // if($scope.report.type == null || $scope.report.device.platform == null || $scope.report.content == null || $scope.report.content.length == 0) {
-                //     $scope.isSending = false;
-                //     $scope.hasError = true;
-                // }
-                //
-                // $http.post('http://api.zaper.com.br/api/report', $scope.report)
-                //     .success(function() {
-                //         $scope.sent = true;
-                //     })
-                //     .error(function() {
-                //         $scope.isSending = false;
-                //         $scope.hasError = true;
-                //     });
             };
         }
     </script>

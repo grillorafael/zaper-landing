@@ -12,22 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body ng-app='zaper' ng-controller='RecoverCtrl' ng-cloak class="forgot-view" >
-        <div class="container">
-            <img src="imgs/logo.png" alt="" width="200">
-        </div>
-        <form name="userForm"  ng-submit='submit()' layout="column" ng-if="!passwordSucess">
-                <md-input-container flex>
-                    <label for="new-password">Digite sua nova senha</label>
-                    <input type="password" name="new-password" ng-model='password'>
-                </md-input-container>
-                <md-input-container flex>
-                    <label for="new-password-again">Digite novamente sua nova senha</label>
-                    <input type="password" name="new-password-again" ng-model='repeat_password'>
-                </md-input-container>
-                <md-button class="md-raised md-primary"  layout-align="end center" ng-click='submit()'>Enviar</md-button>
-        </form>
-        <h2 ng-if="passwordSucess">Sua senha foi alterada com sucesso!</h2>
+<body ng-app='zaper' ng-controller='RecoverCtrl' ng-cloak class="forgot-view">
+    <div class="container">
+        <img src="imgs/logo.png" alt="" width="200">
+    </div>
+    <form name="userForm" ng-submit='submit()' layout="column" ng-if="!passwordSucess">
+        <md-input-container flex>
+            <label for="new-password">Digite sua nova senha</label>
+            <input type="password" name="new-password" ng-model='password'>
+        </md-input-container>
+        <md-input-container flex>
+            <label for="new-password-again">Digite novamente sua nova senha</label>
+            <input type="password" name="new-password-again" ng-model='repeat_password'>
+        </md-input-container>
+        <md-button class="md-raised md-primary" layout-align="end center">Enviar</md-button>
+    </form>
+    <h2 ng-if="passwordSucess">Sua senha foi alterada com sucesso!</h2>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
@@ -39,17 +39,18 @@
             var token = $location.search().token;
             $scope.passwordSucess = false;
             $scope.submit = function() {
-                if($scope.password && $scope.password == $scope.repeat_password && $scope.password.length > 4) {
+                if ($scope.password && $scope.password == $scope.repeat_password && $scope.password.length > 4) {
+                    console.log('Sending');
                     $http.put("http://api.zaper.com.br/api/password", {
-                        token: token,
-                        password: $scope.password
-                    }).success(function(result) {
-                        console.log(result);
-                        $scope.passwordSucess = true;
-                    })
-                    .error(function(e) {
+                            token: token,
+                            password: $scope.password
+                        }).success(function(result) {
+                            console.log(result);
+                            $scope.passwordSucess = true;
+                        })
+                        .error(function(e) {
 
-                    });
+                        });
                 }
                 // $scope.isSending = true;
                 // $scope.hasError = false;

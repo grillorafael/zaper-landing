@@ -1,3 +1,102 @@
-nav.top-bar {
-    background-color: #dd5e6a;
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+body, nav.top-bar {
+    background: -webkit-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* IE10 */
+    background:      -o-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* Opera 11.10+ */
+    background:         linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* W3C */
+
+}
+
+nav {
+    margin-top: 10px;
+}
+
+.nav-list {
+    float: right;
+    margin-right: 10%;
+    vertical-align: middle;
+}
+.nav-list, .nav-list li {
+    list-style: none;
+    display: inline-block;
+}
+
+.nav-list li {
+    padding: 1em;
+    padding-bottom: .2em;
+    color: white;
+    font-weight: 300;
+    font-size: .9em;
+    position: relative;
+}
+
+.nav-list li:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  content: "";
+  transition: width 0.2s;
+}
+
+.nav-list li:hover:after {
+  width: 100%;
+}
+
+.nav-list a {
+    color: white;
+}
+
+
+.first-section {
+    padding-top: 7%;
+    padding-bottom: 2em;
+    height: 100vh;
+    width: 100vw;
+}
+.first-section h2, .first-section p {
+    color: white;
+}
+.first-section h2 {
+    font-family: 'Lobster', cursive;
+    line-height: 1;
+}
+
+.first-section p{
+    font-weight: 300;
+    font-size: 1em;
+}
+
+
+#about {
+    background: white;
+    padding: 1em;
+}
+
+#about ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+#about img {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#about p {
+    line-height: .2;
+}
+
+#about .job {
+    color: #dd5e6a;
 }

@@ -3,17 +3,13 @@ body {
     overflow-x: hidden;
 }
 
-body, nav.top-bar {
-    background: -webkit-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* IE10 */
-    background:      -o-linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* Opera 11.10+ */
-    background:         linear-gradient(120deg, #dd5e6a 10%, #e65245 90%); /* W3C */
+nav.top-bar {
+    background: transparent;
 
 }
 
 nav {
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .nav-list {
@@ -57,10 +53,12 @@ nav {
 
 
 .first-section {
-    padding-top: 7%;
-    padding-bottom: 2em;
     height: 100vh;
     width: 100vw;
+    position: relative;
+    background: url(../imgs/home-bg.jpg);
+    background-position: center center;
+    background-size: cover;
 }
 .first-section h2, .first-section p {
     color: white;
@@ -75,15 +73,31 @@ nav {
     font-size: 1em;
 }
 
+.first-section .mock{
+    position: absolute;
+    top: 11px;
+}
+
+
+.first-section .first-section-text{
+    margin-top: 20%;
+}
+
 
 #about {
     background: white;
     padding: 1em;
+    padding-top: 10%;
+    z-index: 9;
 }
 
 #about ul li {
     list-style: none;
     display: inline-block;
+}
+
+#about li {
+    padding: 1em;
 }
 
 #about img {
